@@ -95,7 +95,7 @@ function MovieList() {
 
                 <div className='grid grid-cols-2 xl:grid-cols-4 w-full gap-2 md:gap-4 text-white h-auto  mx-auto lg:grid-cols-3 md:grid-cols-4 sm:grid-cols-2'>
                     {
-                        data.slice(0, limited).map((movie, index) => {
+                     data && data.items &&   data.items.slice(0, limited).map((movie, index) => {
                             return (
                                 <div className='flex  mx-auto flex-col  rounded-xl' key={index}>
                                     <Link to={`/movie/detail-movie/${movie.slug}`}>
@@ -126,7 +126,7 @@ function MovieList() {
 
                 <div className='grid grid-cols-2 xl:grid-cols-4 w-full gap-2 md:gap-4 text-white h-auto  mx-auto lg:grid-cols-3 md:grid-cols-4 sm:grid-cols-2'>
                     {
-                        datas.slice(0, limited).map((movie, index) => {
+                      datas && datas.items &&  datas.items.slice(0, limited).map((movie, index) => {
                             return (
                                 <div className='flex  mx-auto flex-col  rounded-xl' key={index}>
                                     <Link to={`/movie/detail-movie/${movie.slug}`}>

@@ -28,7 +28,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 gap-4 text-black  bg-white">
                                 {
                                     CategoriMovie.map((its, ids) => (
-                                        <Link className={`hover:no-underline hover:text-yellow-400`} to={`/movie/movie_type/${its.slug}`}>{its.name}</Link>
+                                        <Link key={ids} className={`hover:no-underline hover:text-yellow-400`} to={`/movie/movie_type/${its.slug}`}>{its.name}</Link>
                                     ))
                                 }
                             </div>
@@ -38,7 +38,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 text-black bg-white">
                                 {
                                     CategoriMovie.map((list, ids) => (
-                                        <Link to={`/movie/movie_type/${list.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{list.name}</Link>
+                                        <Link key={ids} to={`/movie/movie_type/${list.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{list.name}</Link>
                                     ))
                                 }
                             </div>
@@ -54,7 +54,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 gap-2 text-black bg-white">
                                 {
                                     genres.map((gens, ids) => (
-                                        <Link to={`/movie/${gens.category}/${gens.slug}`} className="hover:no-underline hover:text-yellow-400">{gens.name}</Link>
+                                        <Link key={ids} to={`/movie/${gens.category}/${gens.slug}`} className="hover:no-underline hover:text-yellow-400">{gens.name}</Link>
                                     ))
                                 }
                             </div>
@@ -64,7 +64,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 text-black bg-white">
                                 {
                                     genres.map((gens, ids) => (
-                                        <Link to={`/movie/${gens.category}/${gens.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{gens.name}</Link>
+                                        <Link key={ids} to={`/movie/${gens.category}/${gens.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{gens.name}</Link>
                                     ))
                                 }
                             </div>
@@ -80,7 +80,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid gap-2 grid-cols-3 text-black bg-white">
                                 {
                                     Countries.map((list, ids) => (
-                                        <Link to={`/movie/${list.countrie}/${list.slug}`} className="hover:no-underline hover:text-yellow-400">{list.name}</Link>
+                                        <Link key={ids} to={`/movie/${list.countrie}/${list.slug}`} className="hover:no-underline hover:text-yellow-400">{list.name}</Link>
                                     ))
                                 }
                             </div>
@@ -90,7 +90,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 text-black bg-white">
                                 {
                                     Countries.map((list, ids) => (
-                                        <Link to={`/movie/${list.countrie}/${list.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{list.name}</Link>
+                                        <Link key={ids} to={`/movie/${list.countrie}/${list.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{list.name}</Link>
                                     ))
                                 }
                             </div>
