@@ -8,7 +8,6 @@ const ListAccountPage = () => {
     const LayData = async (e) => {
         await axios.get(`${process.env.REACT_APP_GATEWAY_GET_LIST_ACCOUNT}`)
             .then(res => {
-                console.log(res.data);
                 setData(res.data)
             })
             .catch(err => {
@@ -21,7 +20,6 @@ const ListAccountPage = () => {
     const ThemAccount = () => {
         navigation("/admin/addAccount")
     }
-    console.log(data);
     return (
         <div className="mx-64">
             <h1 className="text-center uppercase font-semibold text-3xl my-10">Danh sách các tài khoản</h1>

@@ -15,7 +15,6 @@ const Movie = () => {
         axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => {
                 setMovie(res.data.results)
-                console.log(res.data);
             })
             .catch(err => {
                 console.log(err);

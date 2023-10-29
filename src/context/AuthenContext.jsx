@@ -9,7 +9,6 @@ const initialState = {
 const reducer = (state, action) => {
     switch (action.type) {
         case 'SEARCH_SUCCESS':
-            console.log(action.payload);
             return {
                 ...state, MovieTimKiem: action.payload
             }
@@ -27,12 +26,9 @@ const reducer = (state, action) => {
 const AuthenProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const fetchSearch = async (query) => {
-        console.log(query);
         await axios.get(`/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query))
             .then(res => {
                 const data = res.data.pageProps.data
-                console.log(data);
-                console.log(res.data.pageProps.data.items);
                 dispatch({ type: 'SEARCH_SUCCESS', payload: data })
             })
             .catch(err => {
@@ -43,8 +39,6 @@ const AuthenProvider = ({ children }) => {
         await axios.get(`/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=`)
             .then(res => {
                 const data = res.data.pageProps.data
-                console.log(data);
-                console.log(res.data.pageProps.data.items);
                 dispatch({ type: 'SEARCH_SUCCESS', payload: data })
             })
             .catch(err => {

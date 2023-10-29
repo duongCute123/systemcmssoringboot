@@ -17,15 +17,7 @@ const Box = () => {
     const { role, setRole } = useContext(AuthenContext)
     const { auth, setAuth } = useContext(AuthenContext)
     const navigation = useNavigate()
-    useEffect(() => {
-        axios.get("http://localhost:8802/api/test/all")
-            .then(res => {
-                console.log(res.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, [])
+    
     const SubmitHandler = async (e) => {
         e.preventDefault()
         // const rexUsername = /^[a-zA-Z0-9_]{8}$/
@@ -42,7 +34,6 @@ const Box = () => {
         // }
         await axios.post(`${process.env.REACT_APP_GATEWAY_CREATE_ACCOUNT}`, list.forms)
             .then(res => {
-                console.log(res.data);
                 setAuth(res.data)
                 navigation("/user/login")
             })

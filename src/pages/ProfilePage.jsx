@@ -11,7 +11,6 @@ const ProfilePage = () => {
     }
     const { auth } = useContext(AuthenContext)
     const id = auth.id
-    console.log(id);
     const [items, setItems] = useState(list)
     const LayValue = (e) => {
         const { name, value } = e.target

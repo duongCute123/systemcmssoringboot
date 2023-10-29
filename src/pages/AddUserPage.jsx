@@ -15,7 +15,6 @@ const AddUserPage = () => {
         e.preventDefault()
         await axios.post(`${process.env.REACT_APP_GATEWAY_CREATE_ACCOUNT}`, list.forms)
             .then(res => {
-                console.log(res.data);
                 alert("Thêm thành công")
             })
             .catch(err => {

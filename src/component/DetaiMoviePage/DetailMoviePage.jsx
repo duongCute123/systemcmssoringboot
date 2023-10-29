@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
-import OneMovie from "../CurrentMovie";
 import { BsFillPlayFill } from "react-icons/bs"
 import { AuthenContext } from "../../context/AuthenContext";
 import NavBarTMDB from "../Menu/NavBar";

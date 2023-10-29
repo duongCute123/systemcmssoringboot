@@ -7,7 +7,6 @@ import Footer from "../Footer/Footer"
 const TVShow = () => {
     const url = `${DOMAIN}/danh-sach/tv-shows.json?slug=tv-shows`
     const data = useFetch(url)
-    console.log(data);
     return (
         <div className="bg-black/95 duration-200 bg-cover w-full bg-no-repeat text-white  min-h-screen">
             <NavBarTMDB/>

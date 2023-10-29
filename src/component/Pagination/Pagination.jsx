@@ -7,13 +7,13 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <div>
       {pageNumbers.map((pageNumber) => (
-        <button className='bg-blue-400 w-6 text-black border h-auto my-5'
+        <button className=''
           key={pageNumber}
           onClick={() => onPageChange(pageNumber)}
           disabled={pageNumber === currentPage}
         >
           <div className='w-12 border'>
-            <p>{pageNumber}</p>
+            <p className=''>{pageNumber}</p>
           </div>
         </button>
       ))}

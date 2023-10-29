@@ -7,7 +7,6 @@ const MovieTrailer = ({ id }) => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => {
                 setKeyMovie(res.data.results[0].key)
-                console.log(res.data.results);
             })
             .catch(err => {
                 console.log(err);

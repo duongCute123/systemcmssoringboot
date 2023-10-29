@@ -7,7 +7,6 @@ const UserPage = () => {
         axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => {
                 setData(res.data.results)
-                console.log(res.data.results);
             })
             .catch(err => {
                 console.log(err);

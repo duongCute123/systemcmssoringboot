@@ -27,7 +27,6 @@ const EditAccount = () => {
         e.preventDefault()
         await axios.put(`${process.env.REACT_APP_GATEWAY_UPDATE_ACCOUNT}` + id,items)
             .then(res => {
-                console.log(res.data);
             })
             .catch(err => {
                 console.log(err);
@@ -37,7 +36,6 @@ const EditAccount = () => {
         LayAccount()
     }, [id])
     const { username, password, email } = items
-    console.log(items);
     return (
         <div className="">
             <h1 className="text-center items-center text-3xl font-semibold uppercase mt-7">Thêm tài khoản</h1>

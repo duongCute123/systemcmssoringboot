@@ -13,7 +13,6 @@ const MovieTypes = () => {
     const { slug } = useParams()
     const url = `${DOMAIN}/danh-sach/${slug}.json?slug=${slug}`
     const data = useFetch(url)
-    console.log(data);
     return (
         <div className="bg-black/95 duration-200 bg-cover w-full bg-no-repeat text-white  min-h-screen">
             <NavBarTMDB />

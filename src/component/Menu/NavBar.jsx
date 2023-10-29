@@ -248,7 +248,6 @@ const NavBar = () => {
     const { open, setOpen } = useContext(AuthenContext)
     const [hidenMenu, setHidenMenu] = useState(false)
     const { state, fetchSearch } = useContext(AuthenContext)
-    console.log(state);
     const [IsSubmenu, setIsSubMenu] = useState("hidden")
     const [IsTop, setIsTop] = useState("")
     const [isCancel, setIsCanCel] = useState(false)

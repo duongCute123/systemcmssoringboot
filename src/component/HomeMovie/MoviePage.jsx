@@ -118,7 +118,7 @@ function MovieList() {
                     }
                 </div>
                 <div className=' flex flex-row items-center text-center justify-center mt-5'>
-                    <Link to={""} className='font-bold text-xl border-2 border-red-600 border-solid text-white hover:no-underline w-[180px] h-9 items-center text-center justify-center flex hover:bg-yellow-400'>Xem Tất Cả <BiChevronRight color="white" size={"25px"} /></Link>
+                    <Link to={"/movie/movie_type/hoat-hinh"} className='font-bold text-xl border-2 border-red-600 border-solid text-white hover:no-underline w-[180px] h-9 items-center text-center justify-center flex hover:bg-yellow-400'>Xem Tất Cả <BiChevronRight color="white" size={"25px"} /></Link>
                 </div>
                 <div className='my-5'>
                     <p className='font-bold text-white my-2 hover:text-yellow-400 text-3xl'>Phim 18+</p>
@@ -149,7 +149,7 @@ function MovieList() {
                     }
                 </div>
                 <div className=' flex flex-row items-center text-center justify-center mt-5'>
-                    <Link to={"/movie/movie_type/hoat-hinh"} className='font-bold text-xl border-2 border-red-600 border-solid text-white hover:no-underline w-[180px] h-9 items-center text-center justify-center flex hover:bg-yellow-400'>Xem Tất Cả <BiChevronRight color="white" size={"25px"} /></Link>
+                    <Link to={`/movie/${genres[genres.length - 1].category}/${genres[genres.length - 1].slug}`} className='font-bold text-xl border-2 border-red-600 border-solid text-white hover:no-underline w-[180px] h-9 items-center text-center justify-center flex hover:bg-yellow-400'>Xem Tất Cả <BiChevronRight color="white" size={"25px"} /></Link>
                 </div>
                 {/* <div className=''>
                     <ReactPaginate className='bg-white flex absolute right-10 text-2xl tracking-widest border mt-3 mb-3 border-sky-500'
