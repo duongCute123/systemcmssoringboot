@@ -22,4 +22,11 @@ module.exports = function (app) {
             changeOrigin: true,
         })
     );
+    app.use(
+        '//_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/phim-le.json?slug=phim-le',
+        createProxyMiddleware({
+            target: 'https://ophim9.cc',
+            changeOrigin: true,
+        })
+    );
 };

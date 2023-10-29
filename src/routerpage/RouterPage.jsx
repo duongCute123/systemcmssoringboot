@@ -34,7 +34,7 @@ const RouterPage = () => {
                     <Route path="/movie/detail-movie/:slug" element={<DetailMoviePage />} />
                     <Route path="/movie/watch-movie/:slug/tap/:name" element={<WatchMovie />} />
                     <Route path="/" element={<Test />} />
-                    <Route path="/movie/:categories/:slug" element={<MovieTypes />} />
+                    <Route path="/movie/movie_type/:slug" element={<MovieTypes />} />
                     <Route path="/movie/:countrie/:slug" element={<CountriesMovie />} />
                     <Route path="/search/movie/:query" element={<SearchMovie />} />
                     <Route path="/user/login" element={<LoginPage />} />

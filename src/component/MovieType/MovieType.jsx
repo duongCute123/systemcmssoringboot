@@ -7,16 +7,18 @@ import { DOMAIN } from "../../domain/domain"
 import useFetch from "../../hook/useFetch"
 import { useParams } from "react-router-dom"
 const MovieTypes = () => {
-    const { category } = useParams()
+    // Lấy theo loại phim
+    // /movie/:categories/:slug
+    const { categories } = useParams()
     const { slug } = useParams()
-    const url = `${DOMAIN}/${category}/${slug}.json?slug=${slug}`
+    const url = `${DOMAIN}/danh-sach/${slug}.json?slug=${slug}`
     const data = useFetch(url)
     console.log(data);
     return (
         <div className="bg-black/95 duration-200 bg-cover w-full bg-no-repeat text-white  min-h-screen">
             <NavBarTMDB />
             <div className="font-bold mx-3 mt-10 items-center flex">
-                <h1 className="font-bold text-xl">Thể loại phim:</h1>
+                <h1 className="font-bold text-xl">Loại Phim:</h1>
                 <h1 className="ml-4 uppercase">{slug}</h1>
             </div>
             <div className="h-max w-full mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-1 mt-10">
