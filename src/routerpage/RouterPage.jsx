@@ -17,6 +17,7 @@ import RegisterPage from "../auth/RegisterPage"
 import SearchMovie from "../component/SearchMovie"
 import CategoryMovie from "../component/CategoryMovie/CategoryMovie"
 import CountriesMovie from "../component/CountriesMovie.jsx/CountriesMovie"
+import MovieTypes from "../component/MovieType/MovieType"
 const USER_ROLE = {
     PUBLIC_USER: "ROLE_USER",
     ADMIN_USER: "ROLE_ADMIN"
@@ -33,7 +34,8 @@ const RouterPage = () => {
                     <Route path="/movie/detail-movie/:slug" element={<DetailMoviePage />} />
                     <Route path="/movie/watch-movie/:slug/tap/:name" element={<WatchMovie />} />
                     <Route path="/" element={<Test />} />
-                    <Route path="/movie/:name/:slug" element={<CountriesMovie />} />
+                    <Route path="/movie/:categories/:slug" element={<MovieTypes />} />
+                    <Route path="/movie/:countrie/:slug" element={<CountriesMovie />} />
                     <Route path="/search/movie/:query" element={<SearchMovie />} />
                     <Route path="/user/login" element={<LoginPage />} />
                     <Route path="/user/register" element={<RegisterPage />} />

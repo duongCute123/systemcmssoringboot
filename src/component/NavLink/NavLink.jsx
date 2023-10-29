@@ -22,7 +22,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 gap-4 text-black  bg-white">
                                 {
                                     CategoriMovie.map((list, ids) => (
-                                        <Link className="hover:no-underline hover:text-yellow-400" to={`/movie/${list.slug}`}>{list.name}</Link>
+                                        <Link className="hover:no-underline hover:text-yellow-400" to={`/movie/${list.categories}/${list}`}>{list.name}</Link>
                                     ))
                                 }
                             </div>
@@ -74,7 +74,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid gap-2 grid-cols-3 text-black bg-white">
                                 {
                                     Countries.map((list, ids) => (
-                                        <Link to={`/movie/${list.slug}`} className="hover:no-underline hover:text-yellow-400">{list.name}</Link>
+                                        <Link to={`/movie/${list.countrie}/${list.slug}`} className="hover:no-underline hover:text-yellow-400">{list.name}</Link>
                                     ))
                                 }
                             </div>
