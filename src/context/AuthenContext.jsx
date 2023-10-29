@@ -57,6 +57,7 @@ const AuthenProvider = ({ children }) => {
         email: ""
     }
     // Khi người dùng đăng nhập thì set User cho nó
+    const [open, setOpen] = useState(false)
     const [auth, setAuth] = useState({})
     const [Film, setFilm] = useState([])
     const [infoMovie, setInfoMovie] = useState([])
@@ -86,7 +87,8 @@ const AuthenProvider = ({ children }) => {
         infoMovie,
         setInfoMovie,
         state,
-        fetchSearch
+        fetchSearch,
+        open, setOpen
 
     }
     return (

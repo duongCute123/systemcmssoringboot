@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom"
 import { CategoriMovie, Countries, genres } from "../../types"
+import { useContext } from "react"
+import { AuthenContext } from "../../context/AuthenContext"
 const NavLink = () => {
+    const { open, setOpen } = useContext(AuthenContext)
+    const handleLinkClick = () => {
+        setOpen(false);
+    };
     const menu = [
         { name: "Loại Phim" },
         { name: "Thể Loại" },
@@ -22,7 +28,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 gap-4 text-black  bg-white">
                                 {
                                     CategoriMovie.map((its, ids) => (
-                                        <Link className="hover:no-underline hover:text-yellow-400" to={`/movie/movie_type/${its.slug}`}>{its.name}</Link>
+                                        <Link className={`hover:no-underline hover:text-yellow-400`} to={`/movie/movie_type/${its.slug}`}>{its.name}</Link>
                                     ))
                                 }
                             </div>
@@ -32,7 +38,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 text-black bg-white">
                                 {
                                     CategoriMovie.map((list, ids) => (
-                                        <Link to={`/movie/movie_type/${list.slug}`} className="hover:no-underline hover:text-yellow-400">{list.name}</Link>
+                                        <Link to={`/movie/movie_type/${list.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{list.name}</Link>
                                     ))
                                 }
                             </div>
@@ -58,7 +64,7 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 text-black bg-white">
                                 {
                                     genres.map((gens, ids) => (
-                                        <Link to={`/movie/${gens.category}/${gens.slug}`} className="hover:text-yellow-400 hover:no-underline">{gens.name}</Link>
+                                        <Link to={`/movie/${gens.category}/${gens.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{gens.name}</Link>
                                     ))
                                 }
                             </div>
@@ -84,15 +90,15 @@ const NavLink = () => {
                             <div className="p-3.5 grid grid-cols-3 text-black bg-white">
                                 {
                                     Countries.map((list, ids) => (
-                                        <Link to={`/movie/${list.countrie}/${list.slug}`} className="hover:no-underline hover:text-yellow-400">{list.name}</Link>
+                                        <Link to={`/movie/${list.countrie}/${list.slug}`} className={`hover:no-underline hover:text-yellow-400 ${open ? 'left-0' : 'left-[-100%]'}`} onClick={handleLinkClick}>{list.name}</Link>
                                     ))
                                 }
                             </div>
                         </div>
                     </li>
 
-                    <h1 className="py-7 hover:text-yellow-400">TV Show</h1>
-                    <h1 className="py-7 hover:text-yellow-400">Sắp Chiếu</h1>
+                    <Link to={"/movie/type_movie/tv-shows"} className="py-7 hover:no-underline hover:text-yellow-400">TV Show</Link>
+                    <Link to={"/"} className="py-7 hover:no-underline hover:text-yellow-400">Sắp Chiếu</Link>
                 </div>
                 {/* Menu tren mobile */}
                 <div className="">

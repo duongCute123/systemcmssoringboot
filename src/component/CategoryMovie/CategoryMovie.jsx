@@ -15,7 +15,7 @@ const CategoryMovie = () => {
     const data = useFetch(url)
     console.log(data);
     return (
-        <div className="bg-black/95 duration-200 bg-cover w-full bg-no-repeat text-white  min-h-screen">
+        <div className="bg-black/70 duration-200 bg-cover w-full bg-no-repeat text-white  min-h-screen">
             <NavBarTMDB />
             <div className="font-bold mx-3 mt-10 items-center flex">
                 <h1 className="font-bold text-xl">Thể loại phim:</h1>

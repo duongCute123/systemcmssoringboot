@@ -234,7 +234,18 @@ const NavBarTMDB = () => {
 //     )
 // }
 const NavBar = () => {
-    const [open, setOpen] = useState(false)
+    const [displayBgColor, setDisplayBgColor] = useState(false)
+
+    useEffect(() => {
+        function checkPositionHandler() {
+            if (window.scrollY == 0) setDisplayBgColor(false);
+            else setDisplayBgColor(true);
+        }
+        checkPositionHandler();
+        window.addEventListener('scroll', checkPositionHandler);
+        return () => window.removeEventListener('scroll', checkPositionHandler);
+    }, []);
+    const { open, setOpen } = useContext(AuthenContext)
     const [hidenMenu, setHidenMenu] = useState(false)
     const { state, fetchSearch } = useContext(AuthenContext)
     console.log(state);
@@ -298,20 +309,20 @@ const NavBar = () => {
     }, [query])
     {
         return (
-            <nav className="bg-black text-white">
+            <nav className={`${displayBgColor ? 'bg-black/90' : 'bg-black'} md:py-3 md:fixed md:top-0 md:inset-x-0 md:z-40 md:duration-300  text-white`}>
                 <div className=" flex items-center justify-around font-medium h-[50px]">
                     <div className="flex justify-between z-50  md:w-auto w-full items-center">
-                        <div className="flex justify-between items-center">
+                        <Link to={"/movie/homepage"} className="flex justify-between hover:no-underline items-center">
                             <img className="h-9 md:cursor-pointer" src={logo} alt="" />
                             <p>SYS CMS</p>
-                        </div>
+                        </Link>
                         <div className="text-3xl md:hidden" onClick={() => { setOpen(!open) }}>
                             <ion-icon name={`${open ? 'close' : 'menu'}`}></ion-icon>
                         </div>
                     </div>
                     <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins]">
                         <li>
-                            <Link className="py-7 px-3 inline-block">Home</Link>
+                            <Link to={"/movie/homepage"} className="py-7 hover:no-underline px-3 inline-block">Home</Link>
                         </li>
                         <NavLink />
                     </ul>
@@ -352,7 +363,7 @@ const NavBar = () => {
                     py-24 duration-500 ${open ? 'left-0' : 'left-[-100%]'}
                     `}>
                         <li>
-                            <Link className="py-7 px-3 inline-block">Home</Link>
+                            <Link to={"/movie/homepage"} className="py-7 px-3 inline-block">Home</Link>
                         </li>
                         <NavLink />
                         <div className="py-5">

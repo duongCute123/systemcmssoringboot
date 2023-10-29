@@ -18,6 +18,7 @@ import SearchMovie from "../component/SearchMovie"
 import CategoryMovie from "../component/CategoryMovie/CategoryMovie"
 import CountriesMovie from "../component/CountriesMovie.jsx/CountriesMovie"
 import MovieTypes from "../component/MovieType/MovieType"
+import TVShow from "../component/TVShow/TvShowPage"
 const USER_ROLE = {
     PUBLIC_USER: "ROLE_USER",
     ADMIN_USER: "ROLE_ADMIN"
@@ -25,7 +26,7 @@ const USER_ROLE = {
 const RouterPage = () => {
     const { role } = useContext(AuthenContext)
     return (
-        <div className="relative w-full mx-auto min-h-screen bg-slate-950/90">
+        <div className="relative w-full mx-auto min-h-screen  bg-slate-950/90">
             <BrowserRouter>
                 <Routes>
                     <Route path="" element={< Test />} />
@@ -37,6 +38,7 @@ const RouterPage = () => {
                     <Route path="/movie/movie_type/:slug" element={<MovieTypes />} />
                     <Route path="/movie/:countrie/:slug" element={<CountriesMovie />} />
                     <Route path="/search/movie/:query" element={<SearchMovie />} />
+                    <Route path="/movie/type_movie/tv-shows" element={<TVShow />} />
                     <Route path="/user/login" element={<LoginPage />} />
                     <Route path="/user/register" element={<RegisterPage />} />
                     <Route path="/user/reset-pass" element={<ResetPass />} />
