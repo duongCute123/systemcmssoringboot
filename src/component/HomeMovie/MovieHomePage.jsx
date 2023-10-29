@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import MovieTrailer from "./MovieTrailer"
+import MovieTrailer from "../MovieTrailer"
 const MovieHomePage = () => {
     return (
         <div className="">

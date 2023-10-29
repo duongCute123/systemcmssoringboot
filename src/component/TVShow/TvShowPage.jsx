@@ -1,9 +1,9 @@
 import { DOMAIN } from "../../domain/domain"
 import useFetch from "../../hook/useFetch"
-import NavBarTMDB from "../NavBar"
+import NavBarTMDB from "../Menu/NavBar"
 import { Link } from "react-router-dom"
 import { BiTimeFive } from "react-icons/bi"
-import Footer from "../Footer"
+import Footer from "../Footer/Footer"
 const TVShow = () => {
     const url = `${DOMAIN}/danh-sach/tv-shows.json?slug=tv-shows`
     const data = useFetch(url)

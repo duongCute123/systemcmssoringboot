@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import NavBarTMDB from "../NavBar"
-import Footer from "../Footer"
+import NavBarTMDB from "../Menu/NavBar"
+import Footer from "../Footer/Footer"
 import { BiTimeFive } from "react-icons/bi"
 import { DOMAIN } from "../../domain/domain"
 import useFetch from "../../hook/useFetch"
@@ -15,7 +15,7 @@ const CountriesMovie = () => {
     return (
         <div className="bg-black/95 duration-200 bg-cover w-full bg-no-repeat text-white  min-h-screen">
             <NavBarTMDB />
-            <div className="font-bold mx-3 mt-10 items-center flex">
+            <div className="font-bold mx-3 mt-40 items-center flex">
                 <h1 className="font-bold text-xl">Thể loại phim:</h1>
                 <h1 className="ml-4 uppercase">{slug}</h1>
             </div>

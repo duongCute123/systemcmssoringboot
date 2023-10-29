@@ -10,15 +10,16 @@ import EditAccount from "../pages/EditAccount"
 import ProfilePage from "../pages/ProfilePage"
 import Test from "../pages/Test"
 import ResetPass from "../auth/ResetPassWord"
-import MovieList from "../component/MoviePage"
-import DetailMoviePage from "../component/DetailMoviePage"
-import WatchMovie from "../component/WatchMovie"
+import MovieList from "../component/HomeMovie/MoviePage"
+import DetailMoviePage from "../component/DetaiMoviePage/DetailMoviePage"
+import WatchMovie from "../component/WatchMovie/WatchMovie"
 import RegisterPage from "../auth/RegisterPage"
-import SearchMovie from "../component/SearchMovie"
+import SearchMovie from "../component/SearchMovie/SearchMovie"
 import CategoryMovie from "../component/CategoryMovie/CategoryMovie"
 import CountriesMovie from "../component/CountriesMovie.jsx/CountriesMovie"
 import MovieTypes from "../component/MovieType/MovieType"
 import TVShow from "../component/TVShow/TvShowPage"
+import UpCommingMovie from "../component/UpCommingMovie/UpCommingMovie"
 const USER_ROLE = {
     PUBLIC_USER: "ROLE_USER",
     ADMIN_USER: "ROLE_ADMIN"
@@ -39,6 +40,7 @@ const RouterPage = () => {
                     <Route path="/movie/:countrie/:slug" element={<CountriesMovie />} />
                     <Route path="/search/movie/:query" element={<SearchMovie />} />
                     <Route path="/movie/type_movie/tv-shows" element={<TVShow />} />
+                    <Route path="/movie/upcomming_movi/phim-sap-chieu" element={<UpCommingMovie />} />
                     <Route path="/user/login" element={<LoginPage />} />
                     <Route path="/user/register" element={<RegisterPage />} />
                     <Route path="/user/reset-pass" element={<ResetPass />} />

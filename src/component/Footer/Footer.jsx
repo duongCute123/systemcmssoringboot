@@ -1,4 +1,4 @@
-import logo from "../images.module/white1.webp"
+import logo from "../../images.module/white1.webp"
 const Footer = () => {
     return (
         <div className="w-full mx-auto text-white mt-16 h-auto">

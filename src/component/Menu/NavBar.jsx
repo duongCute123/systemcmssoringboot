@@ -1,16 +1,16 @@
 import { Link, useNavigate } from "react-router-dom"
-import logo from "../images.module/white1.webp"
+import logo from "../../images.module/white1.webp"
 import { BiChevronDown } from "react-icons/bi"
 import { BiChevronUp, BiSearch } from "react-icons/bi"
 import { useContext, useEffect, useState } from "react"
 import { AiOutlineClose } from "react-icons/ai"
 import { BiMenuAltLeft } from "react-icons/bi"
-import { AuthenContext } from "../context/AuthenContext"
+import { AuthenContext } from "../../context/AuthenContext"
 import axios from "axios"
-import { Countries, genres } from "../types"
-import { DOMAIN } from "../domain/domain"
-import NavLink from "./NavLink/NavLink"
-import Button from "./NavLink/Button"
+import { Countries, genres } from "../../types"
+import { DOMAIN } from "../../domain/domain"
+import NavLink from "../NavLink/NavLink"
+import Button from "../NavLink/Button"
 const NavBarTMDB = () => {
     return (
         <div className="w-auto">
@@ -309,7 +309,7 @@ const NavBar = () => {
     }, [query])
     {
         return (
-            <nav className={`${displayBgColor ? 'bg-black/90' : 'bg-black'} md:py-3 md:fixed md:top-0 md:inset-x-0 md:z-40 md:duration-300  text-white`}>
+            <nav className={`${displayBgColor ? 'bg-black/90' : 'bg-black'}  md:fixed md:top-0 md:inset-x-0 md:z-40 md:duration-300  text-white`}>
                 <div className=" flex items-center justify-around font-medium h-[50px]">
                     <div className="flex justify-between z-50  md:w-auto w-full items-center">
                         <Link to={"/movie/homepage"} className="flex justify-between hover:no-underline items-center">

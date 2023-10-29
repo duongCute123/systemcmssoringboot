@@ -98,7 +98,7 @@ const NavLink = () => {
                     </li>
 
                     <Link to={"/movie/type_movie/tv-shows"} className="py-7 hover:no-underline hover:text-yellow-400">TV Show</Link>
-                    <Link to={"/"} className="py-7 hover:no-underline hover:text-yellow-400">Sắp Chiếu</Link>
+                    <Link to={"/movie/upcomming_movi/phim-sap-chieu"} className="py-7 hover:no-underline hover:text-yellow-400">Sắp Chiếu</Link>
                 </div>
                 {/* Menu tren mobile */}
                 <div className="">

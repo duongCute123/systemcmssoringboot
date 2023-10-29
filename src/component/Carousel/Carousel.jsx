@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
-import { AuthenContext } from "../context/AuthenContext"
+import { AuthenContext } from "../../context/AuthenContext"
 import axios from "axios"
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
-import './styles.css';
+import '../../stylecss.module/styles.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
 import { Navigation, Autoplay } from 'swiper/modules';

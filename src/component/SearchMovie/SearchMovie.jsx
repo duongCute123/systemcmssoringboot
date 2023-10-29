@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react"
-import { AuthenContext } from "../context/AuthenContext"
+import { AuthenContext } from "../../context/AuthenContext"
 import { useParams } from "react-router-dom"
-import NavBarTMDB from "./NavBar"
+import NavBarTMDB from "../Menu/NavBar"
 import { Link } from "react-router-dom"
 import { BiTimeFive } from "react-icons/bi"
-import Footer from "./Footer"
+import Footer from "../Footer/Footer"
 const SearchMovie = () => {
     const { state, fetchSearch } = useContext(AuthenContext)
     const { MovieTimKiem } = state

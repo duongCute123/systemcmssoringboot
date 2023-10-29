@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import NavBarTMDB from "../NavBar"
-import Footer from "../Footer"
+import NavBarTMDB from "../Menu/NavBar"
+import Footer from "../Footer/Footer"
 import { BiTimeFive } from "react-icons/bi"
 
 import { DOMAIN } from "../../domain/domain"

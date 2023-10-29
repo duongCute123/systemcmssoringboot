@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { AuthenContext } from "../context/AuthenContext"
+import { AuthenContext } from "../../context/AuthenContext"
 import { useParams } from "react-router-dom"
 import { useState } from "react"
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import {BsServer} from "react-icons/bs"
 import axios from "axios"
-import NavBarTMDB from "./NavBar"
+import NavBarTMDB from "../Menu/NavBar"
 const WatchMovie = () => {
     const { slug } = useParams()
     const { name } = useParams()
