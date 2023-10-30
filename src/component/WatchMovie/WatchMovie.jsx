@@ -4,12 +4,13 @@ import { useParams } from "react-router-dom"
 import { useState } from "react"
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import {BsServer} from "react-icons/bs"
+import { BsServer } from "react-icons/bs"
 import axios from "axios"
 import NavBarTMDB from "../Menu/NavBar"
 const WatchMovie = () => {
     const { slug } = useParams()
     const { name } = useParams()
+    const [selectItem, setSelctItem] = useState()
     const [detailMovie, setDetailMovie] = useState([])
     const [dienvien, setDienVien] = useState([])
     const [listTap, setListTap] = useState([])
@@ -24,9 +25,11 @@ const WatchMovie = () => {
     const HandleValue = (e) => {
         const { name, value } = e.target
         setTaps({ ...tap, [name]: value })
+        setSelctItem("bg-yellow-400")
     }
     const handleEpisodeClick = (episode) => {
         setSelectedEpisode(episode.selected);
+        setSelctItem("bg-yellow-400")
     };
     const LayPhim = async () => {
         await axios.get(`https://ophim1.com/phim/${slug}`)
@@ -54,8 +57,8 @@ const WatchMovie = () => {
     }, [listTap])
     return (
         <div className="">
-            <NavBarTMDB/>
-            <h1 className="my-3 mx-3 text-white hover:text-yellow-500 text-2xl uppercase font-bold">CMS - Phim bộ - {detailMovie.name}</h1>
+            <NavBarTMDB />
+            <h1 className="my-3 mx-3 text-white lg:mt-20 hover:text-yellow-500 text-2xl uppercase font-bold">CMS - Phim bộ - {detailMovie.name}</h1>
             <div className="flex flex-col items-center ">
                 {
                     theotap != undefined && (
@@ -63,7 +66,7 @@ const WatchMovie = () => {
                             src={`${theotap.link_embed}`}
                             title="Embedded Video"
                             width="97%"
-                            className="lg:h-[550px] xl:h-[600px] md:h-[550px] sm:h-[400px]"
+                            className="lg:h-[550px] xl:h-[600px] md:h-[550px] h-[300px]"
                             frameBorder="0"
                             allowFullScreen
                         ></iframe>
@@ -83,8 +86,9 @@ const WatchMovie = () => {
                         taps.map((items, index) => {
                             return (
                                 <div className="" key={index}>
-                                    <Link to={`/movie/watch-movie/${slug}/tap/${items.name}`} className="mx-3 rounded-lg border-solid bg-white w-16 text-gray-400 hover:bg-yellow-400">
-                                        <input className="w-[50px] mt-2" type="button" onChange={HandleValue} value={items.name} />
+                                    <Link to={`/movie/watch-movie/${slug}/tap/${items.name}`} onClick={handleEpisodeClick} className={` ${selectItem===items.name} mx-3 rounded-lg border-solid border-2 border-red-500 w-16 text-gray-400 hover:bg-yellow-400`}>
+                                        <input className={` w-[50px] mt-2`} type="button" onChange={HandleValue} value={items.name} />
+
                                     </Link>
                                 </div>
                             )
@@ -94,7 +98,7 @@ const WatchMovie = () => {
             </div>
             <div className="">
                 <h1 className="font-bold text-white text-2xl my-2">Thông tin chi tiết phim </h1>
-                <ContentComponent content={detailMovie.content}/>
+                <ContentComponent content={detailMovie.content} />
             </div>
         </div>
     )

@@ -1,21 +1,39 @@
 import { DOMAIN } from "../../domain/domain"
 import useFetch from "../../hook/useFetch"
+import ReactPaginate from "react-paginate"
 import NavBarTMDB from "../Menu/NavBar"
 import { Link } from "react-router-dom"
 import { BiTimeFive } from "react-icons/bi"
+import { useState, useEffect } from "react"
+import { BiChevronRight, BiChevronLeft } from "react-icons/bi"
 import Footer from "../Footer/Footer"
 const TVShow = () => {
-    const url = `${DOMAIN}/danh-sach/tv-shows.json?slug=tv-shows`
+    const [currentPage, setCurrentPage] = useState(1);
+    const [toTalPage, setToTalPage] = useState()
+    const [pageRanges, setpageRanges] = useState()
+    const url = `${DOMAIN}/danh-sach/tv-shows.json?page=${currentPage}slug=tv-shows`
     const data = useFetch(url)
+    useEffect(() => {
+        if (data && data.params && data.params.pagination) {
+            setToTalPage(Math.ceil((data.params.pagination.totalItems) / (data.params.pagination.totalItemsPerPage)))
+            setpageRanges(data.params.pagination.pageRanges)
+        }
+
+    }, [data])
+    console.log(toTalPage);
+    console.log(pageRanges);
+    const handlePageChange = (selectedPage) => {
+        setCurrentPage(selectedPage.selected + 1);
+    };
     return (
         <div className="bg-black/95 duration-200 bg-cover w-full bg-no-repeat text-white  min-h-screen">
-            <NavBarTMDB/>
+            <NavBarTMDB />
             <div className="font-bold mx-3 mt-10 items-center flex">
                 <h1 className="font-bold text-xl">TvShow</h1>
             </div>
             <div className="h-max w-full mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-1 mt-10">
                 {
-                    data.map((list, index) => (
+                    data && data.params && data.params.pagination && data.items.map((list, index) => (
                         <div className="rounded-xl mx-3 my-4" key={index}>
                             <div className="bg-stone-900 overflow-hidden aspect-[2/3]">
                                 <Link to={`/movie/detail-movie/${list.slug}`} >
@@ -49,6 +67,30 @@ const TVShow = () => {
                         </div>
                     ))
                 }
+            </div>
+            <div className=''>
+                <ReactPaginate
+                    className='flex gap-4 justify-center hover:no-underline font-bold  items-center text-center'
+                    pageCount={toTalPage} // Tổng số trang
+                    pageRangeDisplayed={pageRanges} // Số lượng nút phân trang hiển thị
+                    marginPagesDisplayed={2} // Số lượng nút phân trang hiển thị ở hai đầu
+                    onPageChange={handlePageChange} // Xử lý sự kiện khi người dùng chuyển trang
+                    containerClassName="pagination"
+                    activeClassName="text-white bg-yellow-400"
+                    disabledClassName="disabled"
+                    nextLabel={<BiChevronRight size={"25px"} />}
+                    pageClassName="border-solid border-2 border-yellow-400 justify-center items-center w-10"
+
+                    previousClassName={currentPage === 1 ? 'hidden' : ''}
+                    previousLabel={
+                        <div className="flex items-center justify-center text-center">
+                            <BiChevronLeft size={"25px"} />
+                        </div>
+                    }
+                    pageLinkClassName={""}
+                    activeLinkClassName={""}
+                />
+                {/* <Pagination currentPage={currentPage} totalPages={toTalPage} onPageChange={handlePageChange}/> */}
             </div>
             <Footer />
         </div>

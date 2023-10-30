@@ -35,7 +35,7 @@ const Footer = () => {
                             <li>SDT:01258752264</li>
                         </ul>
                     </div>
-                    <div className=" ml-10">
+                    <div className="hidden lg:block ml-10">
                         <img className="w-[80px]" src={logo} alt="" />
                     </div>
                 </div>

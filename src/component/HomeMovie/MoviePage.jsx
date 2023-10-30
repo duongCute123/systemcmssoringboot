@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 import { AuthenContext } from '../../context/AuthenContext';
 import NavBarTMDB from '../Menu/NavBar';
-import { BiChevronRight } from "react-icons/bi"
+import { BiChevronRight, BiTimeFive } from "react-icons/bi"
 import Carousel from '../Carousel/Carousel';
 import Footer from '../Footer/Footer';
 import { DOMAIN } from '../../domain/domain';
@@ -74,14 +74,21 @@ function MovieList() {
                                         <img className='lg:w-[350px] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
                                     </Link>
                                     <h1 className=' font-semibold text-xl line-clamp-1'>{movie.name}</h1>
-                                    <h1 className=' text-gray-600 line-clamp-1'>{movie.origin_name}</h1>
+                                    <div className='flex justify-between items-center'>
+                                        <h1 className=' text-gray-600 line-clamp-1'>{movie.origin_name}</h1>
+                                        <h1>{movie.year}</h1>
+                                    </div>
                                     <div className='flex justify-between'>
-                                        <p className='w-3/4 '>{movie.year}</p>
-                                        <div className='flex'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                                                <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                            </svg>
-                                            <p className='mx-2'>100</p>
+                                        <div className="flex gap-2">
+                                            <p className="text-yellow-400 font-bold">
+                                                {movie.quality}
+                                            </p>
+                                            <p className="border line-clamp-1 font-bold text-sm h-auto hidden md:block hover:bg-yellow-300 bg-gray-400  border-solid items-center text-center">
+                                                {movie.lang}
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-row items-center justify-center gap-1">
+                                            <BiTimeFive color="yellow" /> {movie.time}
                                         </div>
                                     </div>
                                 </div>
@@ -95,21 +102,28 @@ function MovieList() {
 
                 <div className='grid grid-cols-2 xl:grid-cols-4 w-full gap-2 md:gap-4 text-white h-auto  mx-auto lg:grid-cols-3 md:grid-cols-4 sm:grid-cols-2'>
                     {
-                     data && data.items &&   data.items.slice(0, limited).map((movie, index) => {
+                        data && data.items && data.items.slice(0, limited).map((movie, index) => {
                             return (
                                 <div className='flex  mx-auto flex-col  rounded-xl' key={index}>
                                     <Link to={`/movie/detail-movie/${movie.slug}`}>
                                         <img className='lg:w-[350px] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
                                     </Link>
                                     <h1 className=' font-semibold text-xl line-clamp-1'>{movie.name}</h1>
-                                    <h1 className=' text-gray-600 line-clamp-1'>{movie.origin_name}</h1>
+                                    <div className='flex justify-between items-center'>
+                                        <h1 className=' text-gray-600 line-clamp-1'>{movie.origin_name}</h1>
+                                        <h1>{movie.year}</h1>
+                                    </div>
                                     <div className='flex justify-between'>
-                                        <p className='w-3/4 '>{movie.year}</p>
-                                        <div className='flex'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                                                <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                            </svg>
-                                            <p className='mx-2'>100</p>
+                                        <div className="flex gap-2">
+                                            <p className="text-yellow-400 font-bold">
+                                                {movie.quality}
+                                            </p>
+                                            <p className="border line-clamp-1 font-bold text-sm h-auto hidden md:block hover:bg-yellow-300 bg-gray-400  border-solid items-center text-center">
+                                                {movie.lang}
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-row items-center justify-center gap-1">
+                                            <BiTimeFive color="yellow" /> {movie.time}
                                         </div>
                                     </div>
                                 </div>
@@ -126,21 +140,28 @@ function MovieList() {
 
                 <div className='grid grid-cols-2 xl:grid-cols-4 w-full gap-2 md:gap-4 text-white h-auto  mx-auto lg:grid-cols-3 md:grid-cols-4 sm:grid-cols-2'>
                     {
-                      datas && datas.items &&  datas.items.slice(0, limited).map((movie, index) => {
+                        datas && datas.items && datas.items.slice(0, limited).map((movie, index) => {
                             return (
                                 <div className='flex  mx-auto flex-col  rounded-xl' key={index}>
                                     <Link to={`/movie/detail-movie/${movie.slug}`}>
                                         <img className='lg:w-[350px] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
                                     </Link>
                                     <h1 className=' font-semibold text-xl line-clamp-1'>{movie.name}</h1>
-                                    <h1 className=' text-gray-600 line-clamp-1'>{movie.origin_name}</h1>
+                                    <div className='flex justify-between items-center'>
+                                        <h1 className=' text-gray-600 line-clamp-1'>{movie.origin_name}</h1>
+                                        <h1>{movie.year}</h1>
+                                    </div>
                                     <div className='flex justify-between'>
-                                        <p className='w-3/4 '>{movie.year}</p>
-                                        <div className='flex'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                                                <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                            </svg>
-                                            <p className='mx-2'>100</p>
+                                        <div className="flex gap-2">
+                                            <p className="text-yellow-400 font-bold">
+                                                {movie.quality}
+                                            </p>
+                                            <p className="border line-clamp-1 font-bold text-sm h-auto hidden md:block hover:bg-yellow-300 bg-gray-400  border-solid items-center text-center">
+                                                {movie.lang}
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-row items-center justify-center gap-1">
+                                            <BiTimeFive color="yellow" /> {movie.time}
                                         </div>
                                     </div>
                                 </div>
