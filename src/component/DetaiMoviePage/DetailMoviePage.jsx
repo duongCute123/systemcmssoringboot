@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
-import { BsFillPlayFill } from "react-icons/bs"
+import { BsFillPlayFill, BsYoutube } from "react-icons/bs"
+import { GiRoyalLove } from "react-icons/gi"
+import { IoArrowRedoSharp } from "react-icons/io5"
 import { AuthenContext } from "../../context/AuthenContext";
 import NavBarTMDB from "../Menu/NavBar";
 import ModalSocial from "../ModalSocial/ModalSocial";
@@ -41,6 +43,10 @@ const DetailMoviePage = () => {
             setTap(tap.server_data)
         })
     }, [listTap])
+    const [showModal, setShowModal] = useState(false)
+    const HandlerCloseModal = () => {
+        setShowModal(false)
+    }
     return (
         <div className={`text-gray-400 min-h-screen flex flex-col relative`}>
             <NavBarTMDB />
@@ -78,7 +84,23 @@ const DetailMoviePage = () => {
                                     <p className="font-bold text-lg md:text-xl hover:text-yellow-500">Lượt xem: {detailMovie.view}</p>
                                 </div>
                             </div>
-                            <ModalSocial />
+                            <div className="flex bg-black/90 opacity-80 inset-0 mt-10 h-16 w-[350px] items-center justify-center text-center gap-4 flex-row">
+                                <div className="flex flex-col hover:text-yellow-400 items-center justify-center">
+                                    <IoArrowRedoSharp className="hover:text-yellow-400" color="white" />
+                                    <p className="font-bold hover:text-yellow-400 text-lg text-white" onClick={() => { setShowModal(true) }}>Share</p>
+                                </div>
+                                <div className="flex items-center flex-row justify-center gap-4">
+                                    <div className="flex flex-row justify-center items-center text-center gap-1">
+                                        <BsYoutube color="white" />
+                                        <p className="font-bold text-lg text-white">Trailer</p>
+                                    </div>
+                                    <div className="flex flex-row items-center justify-center gap-2">
+                                        <GiRoyalLove />
+                                        <p className="font-bold text-lg text-white">Yêu Thích</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <ModalSocial closed={HandlerCloseModal} visible={showModal} />
                         </div>
                     </div>
                 </div>
