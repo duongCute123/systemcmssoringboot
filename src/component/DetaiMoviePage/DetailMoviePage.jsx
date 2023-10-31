@@ -84,8 +84,8 @@ const DetailMoviePage = () => {
                                     <p className="font-bold text-lg md:text-xl hover:text-yellow-500">Lượt xem: {detailMovie.view}</p>
                                 </div>
                             </div>
-                            <div className="flex bg-black/90 opacity-80 inset-0 mt-10 h-16 w-[350px] items-center justify-center text-center gap-4 flex-row">
-                                <div className="flex flex-col hover:text-yellow-400 items-center justify-center">
+                            <div className="flex bg-black/90 opacity-80 inset-0 mt-10 h-16 w-[450px] items-center justify-center text-center gap-4 flex-row">
+                                <div className="flex border-r-2 pr-3 flex-col hover:text-yellow-400 items-center justify-center">
                                     <IoArrowRedoSharp className="hover:text-yellow-400" color="white" />
                                     <p className="font-bold hover:text-yellow-400 text-lg text-white" onClick={() => { setShowModal(true) }}>Share</p>
                                 </div>
@@ -94,8 +94,8 @@ const DetailMoviePage = () => {
                                         <BsYoutube color="white" />
                                         <p className="font-bold text-lg text-white">Trailer</p>
                                     </div>
-                                    <div className="flex flex-row items-center justify-center gap-2">
-                                        <GiRoyalLove />
+                                    <div className="flex border-2 border-solid border-red-500 h-[45px] rounded-xl bg-yellow-400 w-[150px] flex-row items-center justify-center gap-2">
+                                        <GiRoyalLove color="white" />
                                         <p className="font-bold text-lg text-white">Yêu Thích</p>
                                     </div>
                                 </div>
