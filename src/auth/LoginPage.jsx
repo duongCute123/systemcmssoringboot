@@ -5,7 +5,7 @@ import axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
 const LoginPage = () => {
     return (
-        <div className="w-auto max-h-screen  bg-[url('./images.module/back-login.png')] bg-no-repeat bg-cover">
+        <div className="w-auto min-h-screen  bg-[url('./images.module/back-login.png')] bg-no-repeat bg-cover">
             <Box />
         </div>
     )

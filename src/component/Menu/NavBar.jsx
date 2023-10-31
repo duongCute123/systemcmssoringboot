@@ -362,7 +362,7 @@ const NavBar = () => {
                     py-24 duration-500 ${open ? 'left-0' : 'left-[-100%]'}
                     `}>
                         <li>
-                            <Link to={"/movie/homepage"} className="py-7 px-3 inline-block">Home</Link>
+                            <Link to={"/movie/homepage"} className="py-7 px-3 hover:text-yellow-400 hover:no-underline inline-block">Home</Link>
                         </li>
                         <NavLink />
                         <div className="py-5">

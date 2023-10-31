@@ -37,7 +37,7 @@ export const CategoriMovie = [
     {
 
         name: "Phim Hoạt Hình",
-        slug: "phim-hoat-hinh"
+        slug: "hoat-hinh"
     },
     {
 

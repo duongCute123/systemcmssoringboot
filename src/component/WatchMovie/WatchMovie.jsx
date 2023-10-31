@@ -16,6 +16,7 @@ const WatchMovie = () => {
     const [listTap, setListTap] = useState([])
     const [countrys, setCountry] = useState([])
     const [theloai, setTheLoai] = useState([])
+    const [tapPhim, setTapPhim] = useState()
     const [selectedEpisode, setSelectedEpisode] = useState(null);
     const [taps, setTap] = useState([])
     const { setFilm, setInfoMovie } = useContext(AuthenContext)
@@ -41,6 +42,7 @@ const WatchMovie = () => {
                 setCountry(res.data.movie.country)
                 setListTap(res.data.episodes)
                 setInfoMovie(res.data.movie)
+                setTapPhim(res.data.episodes)
             })
             .catch(err => {
                 console.log(err);
@@ -55,10 +57,11 @@ const WatchMovie = () => {
         })
 
     }, [listTap])
+    console.log(theotap);
     return (
-        <div className="">
+        <div className="bg-black/70 min-h-screen">
             <NavBarTMDB />
-            <h1 className="my-3 mx-3 text-white lg:mt-20 hover:text-yellow-500 text-2xl uppercase font-bold">CMS - Phim bộ - {detailMovie.name}</h1>
+            <h1 className="my-3 mx-3 text-white lg:mt-20 hover:text-yellow-500  text-2xl uppercase font-bold">CMS - Phim bộ - {detailMovie.name}</h1>
             <div className="flex flex-col items-center ">
                 {
                     theotap != undefined && (
@@ -86,8 +89,8 @@ const WatchMovie = () => {
                         taps.map((items, index) => {
                             return (
                                 <div className="" key={index}>
-                                    <Link to={`/movie/watch-movie/${slug}/tap/${items.name}`} onClick={handleEpisodeClick} className={` ${selectItem===items.name} mx-3 rounded-lg border-solid border-2 border-red-500 w-16 text-gray-400 hover:bg-yellow-400`}>
-                                        <input className={` w-[50px] mt-2`} type="button" onChange={HandleValue} value={items.name} />
+                                    <Link to={`/movie/watch-movie/${slug}/tap/${items.name}`} onClick={handleEpisodeClick} className={` ${theotap.name === items.name ? 'bg-yellow-400' : ''} mx-3 rounded-lg border-solid border-2 hover:no-underline font-bold text-white border-red-500 w-16  hover:bg-yellow-400`}>
+                                        <input className={`  w-[50px] mt-2`} type="button" onChange={HandleValue} value={items.name} />
 
                                     </Link>
                                 </div>
@@ -95,6 +98,21 @@ const WatchMovie = () => {
                         })
                     }
                 </div>
+                {/* <div>
+                    {
+                        tapPhim && tapPhim.map((item) => (
+                            
+                                item.server_data.map((list) => {
+                                    return (
+                                        <div>
+                                            <p>{list.link_embed}</p>
+                                        </div>
+                                    )
+                                })
+                            
+                        ))
+                    }
+                </div> */}
             </div>
             <div className="">
                 <h1 className="font-bold text-white text-2xl my-2">Thông tin chi tiết phim </h1>

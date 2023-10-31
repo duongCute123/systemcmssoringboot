@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 const Test = () => {
     const navigation = useNavigate()
     useEffect(() => {
-        navigation("/user/login")
+        navigation("/movie/homepage")
     }, [navigation])
     return (
         <div className="">
