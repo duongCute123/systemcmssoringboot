@@ -6,6 +6,7 @@ import { AuthenContext } from '../../context/AuthenContext';
 import NavBarTMDB from '../Menu/NavBar';
 import { BiChevronRight, BiTimeFive } from "react-icons/bi"
 import Carousel from '../Carousel/Carousel';
+import { MdOutlineFavorite } from "react-icons/md"
 import Footer from '../Footer/Footer';
 import { DOMAIN } from '../../domain/domain';
 import useFetch from '../../hook/useFetch';
@@ -16,7 +17,7 @@ function MovieList() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0); // Thêm state mới
     const [itemsPerPage, setItemsPerPage] = useState(0)
-    const { setFilm } = useContext(AuthenContext)
+    const { setFilm, state, dispatch } = useContext(AuthenContext)
     useEffect(() => {
         axios.get(`https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=${currentPage}`)
             .then(res => {
@@ -38,6 +39,9 @@ function MovieList() {
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected);
     };
+    const AddFavouriteMovie = (detailMovie) => {
+        dispatch({ type: 'ADD_MOVIE_FAVOURITE', payload: detailMovie })
+    }
     return (
         <div className='bg-black/80 overflow-y-auto'>
             <NavBarTMDB />
@@ -71,7 +75,7 @@ function MovieList() {
                             return (
                                 <div className='flex  mx-auto flex-col  rounded-xl' key={index}>
                                     <Link to={`/movie/detail-movie/${movie.slug}`}>
-                                        <img className='lg:w-[350px] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
+                                        <img className='lg:w-[350px] aspect-[2/3] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
                                     </Link>
                                     <h1 className=' font-semibold text-xl line-clamp-1'>{movie.name}</h1>
                                     <div className='flex justify-between items-center'>
@@ -88,7 +92,7 @@ function MovieList() {
                                             </p>
                                         </div>
                                         <div className="flex flex-row items-center justify-center gap-1">
-                                            <BiTimeFive color="yellow" /> {movie.time}
+                                            <MdOutlineFavorite onClick={() => AddFavouriteMovie(movie)} color='yellow' />      <BiTimeFive color="yellow" /> {movie.time}
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +110,7 @@ function MovieList() {
                             return (
                                 <div className='flex  mx-auto flex-col  rounded-xl' key={index}>
                                     <Link to={`/movie/detail-movie/${movie.slug}`}>
-                                        <img className='lg:w-[350px] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
+                                        <img className='lg:w-[350px] aspect-[2/3] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
                                     </Link>
                                     <h1 className=' font-semibold text-xl line-clamp-1'>{movie.name}</h1>
                                     <div className='flex justify-between items-center'>
@@ -123,7 +127,7 @@ function MovieList() {
                                             </p>
                                         </div>
                                         <div className="flex flex-row items-center justify-center gap-1">
-                                            <BiTimeFive color="yellow" /> {movie.time}
+                                            <MdOutlineFavorite onClick={() => AddFavouriteMovie(movie)} color='yellow' />   <BiTimeFive color="yellow" /> {movie.time}
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +165,7 @@ function MovieList() {
                                             </p>
                                         </div>
                                         <div className="flex flex-row items-center justify-center gap-1">
-                                            <BiTimeFive color="yellow" /> {movie.time}
+                                            <MdOutlineFavorite onClick={() => AddFavouriteMovie(movie)} color='yellow' /> <BiTimeFive color="yellow" /> {movie.time}
                                         </div>
                                     </div>
                                 </div>

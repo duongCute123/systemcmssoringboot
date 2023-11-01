@@ -21,19 +21,25 @@ const reducer = (state, action) => {
             break
         case "ADD_MOVIE_FAVOURITE":
             let movie = {
+                id: action.payload._id,
                 name: action.payload.name,
                 slug: action.payload.slug,
                 origin_name: action.payload.origin_name,
                 thumb_url: action.payload.thumb_url,
                 poster_url: action.payload.poster_url,
                 year: action.payload.year,
-                quality:action.payload.quality,
-                lang:action.payload.lang,
-                time:action.payload.time
+                quality: action.payload.quality,
+                lang: action.payload.lang,
+                time: action.payload.time
             }
-
-
+            state.MovieFavourite.map((list,indx)=>{
+                if (list.id===movie.id) {
+                    return
+                }
+            })
             const updatedMovieFavourite = [...state.MovieFavourite, movie];
+
+
             localStorage.setItem("movie-favourite", JSON.stringify(updatedMovieFavourite));
             return {
                 state,
@@ -50,8 +56,17 @@ const reducer = (state, action) => {
             }
             break
         case "XOA_MOVIE_FAVOURITE":
+            // const phims = JSON.parse(localStorage.getItem("movie-favourite"))
+            // state.MovieFavourite=phim
+            console.log(state.MovieFavourite);
+            console.log(action.payload);
             return {
-                state
+                ...state,
+                MovieFavourite: state.MovieFavourite.filter(movie => {
+                    { console.log(action.payload) }
+                    return movie.id != state.MovieFavourite[action.payload]?.id
+                })
+
             }
             break
         default:

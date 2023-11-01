@@ -22,7 +22,7 @@ const SearchMovie = () => {
             </div>
             <div className="h-max w-full mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-1 mt-10">
                 {
-                    MovieTimKiem.items != null && MovieTimKiem.items.length > 0 && MovieTimKiem.items.map((list, index) => (
+                  MovieTimKiem &&  MovieTimKiem.items &&  MovieTimKiem.items != null && MovieTimKiem.items.length > 0 && MovieTimKiem.items.map((list, index) => (
                         <div className="rounded-xl mx-3 my-4" key={index}>
                             <div className="bg-stone-900 overflow-hidden aspect-[2/3]">
                                 <Link to={`/movie/detail-movie/${list.slug}`} >
