@@ -26,7 +26,10 @@ const reducer = (state, action) => {
                 origin_name: action.payload.origin_name,
                 thumb_url: action.payload.thumb_url,
                 poster_url: action.payload.poster_url,
-                year: action.payload.year
+                year: action.payload.year,
+                quality:action.payload.quality,
+                lang:action.payload.lang,
+                time:action.payload.time
             }
 
 
