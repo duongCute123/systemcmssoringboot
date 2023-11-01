@@ -4,7 +4,8 @@ import axios from "axios"
 const AuthenContext = createContext();
 const initialState = {
     MovieTimKiem: [],
-    MovieCategory: []
+    MovieCategory: [],
+    MovieFavourite: []
 }
 const reducer = (state, action) => {
     switch (action.type) {
@@ -16,6 +17,38 @@ const reducer = (state, action) => {
         case 'GET_CATEGORY_MOVIE':
             return {
                 ...state, MovieCategory: action.payload
+            }
+            break
+        case "ADD_MOVIE_FAVOURITE":
+            let movie = {
+                name: action.payload.name,
+                slug: action.payload.slug,
+                origin_name: action.payload.origin_name,
+                thumb_url: action.payload.thumb_url,
+                poster_url: action.payload.poster_url,
+                year: action.payload.year
+            }
+
+
+            const updatedMovieFavourite = [...state.MovieFavourite, movie];
+            localStorage.setItem("movie-favourite", JSON.stringify(updatedMovieFavourite));
+            return {
+                state,
+                MovieFavourite: updatedMovieFavourite
+            }
+            break
+        case "GET_MOVIE_FAVOURITE":
+            const phim = JSON.parse(localStorage.getItem("movie-favourite"))
+            console.log(phim);
+
+            return {
+                ...state,
+                MovieFavourite: phim
+            }
+            break
+        case "XOA_MOVIE_FAVOURITE":
+            return {
+                state
             }
             break
         default:
@@ -35,7 +68,7 @@ const AuthenProvider = ({ children }) => {
                 console.log(err);
             })
     }
-    const  fetchCategory= async () => {
+    const fetchCategory = async () => {
         await axios.get(`/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=`)
             .then(res => {
                 const data = res.data.pageProps.data
@@ -82,7 +115,7 @@ const AuthenProvider = ({ children }) => {
         setInfoMovie,
         state,
         fetchSearch,
-        open, setOpen
+        open, setOpen, dispatch
 
     }
     return (

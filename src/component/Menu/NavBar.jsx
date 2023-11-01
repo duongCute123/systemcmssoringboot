@@ -7,6 +7,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import { BiMenuAltLeft } from "react-icons/bi"
 import { AuthenContext } from "../../context/AuthenContext"
 import axios from "axios"
+import { MdFavorite } from "react-icons/md"
 import { Countries, genres } from "../../types"
 import { DOMAIN } from "../../domain/domain"
 import NavLink from "../NavLink/NavLink"
@@ -233,9 +234,9 @@ const NavBarTMDB = () => {
 //         </div>
 //     )
 // }
+
 const NavBar = () => {
     const [displayBgColor, setDisplayBgColor] = useState(false)
-
     useEffect(() => {
         function checkPositionHandler() {
             if (window.scrollY == 0) setDisplayBgColor(false);
@@ -247,7 +248,7 @@ const NavBar = () => {
     }, []);
     const { open, setOpen } = useContext(AuthenContext)
     const [hidenMenu, setHidenMenu] = useState(false)
-    const { state, fetchSearch } = useContext(AuthenContext)
+    const { state, fetchSearch, dispatch } = useContext(AuthenContext)
     const [IsSubmenu, setIsSubMenu] = useState("hidden")
     const [IsTop, setIsTop] = useState("")
     const [isCancel, setIsCanCel] = useState(false)
@@ -365,9 +366,11 @@ const NavBar = () => {
                             <Link to={"/movie/homepage"} className="py-7 px-3 hover:text-yellow-400 hover:no-underline inline-block">Home</Link>
                         </li>
                         <NavLink />
-                        <div className="py-5">
+                        <div className="py-5 flex flex-row justify-center items-center text-center gap-1">
+                            <MdFavorite />
                             <Button />
                         </div>
+
                     </ul>
 
                 </div>

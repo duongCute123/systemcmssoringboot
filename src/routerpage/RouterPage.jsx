@@ -20,6 +20,7 @@ import CountriesMovie from "../component/CountriesMovie.jsx/CountriesMovie"
 import MovieTypes from "../component/MovieType/MovieType"
 import TVShow from "../component/TVShow/TvShowPage"
 import UpCommingMovie from "../component/UpCommingMovie/UpCommingMovie"
+import MovieFavourite from "../component/MovieFavarite/MovieFavourite"
 const USER_ROLE = {
     PUBLIC_USER: "ROLE_USER",
     ADMIN_USER: "ROLE_ADMIN"
@@ -42,6 +43,7 @@ const RouterPage = () => {
                     <Route path="/movie/type_movie/tv-shows" element={<TVShow />} />
                     <Route path="/movie/upcomming_movi/phim-sap-chieu" element={<UpCommingMovie />} />
                     <Route path="/user/login" element={<LoginPage />} />
+                    <Route path="/movie/phim-yeu-thich" element={<MovieFavourite />} />
                     <Route path="/user/register" element={<RegisterPage />} />
                     <Route path="/user/reset-pass" element={<ResetPass />} />
                     <Route path="/admin/homepage" element={<App />}>

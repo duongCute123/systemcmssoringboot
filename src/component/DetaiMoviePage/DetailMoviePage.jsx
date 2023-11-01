@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { BsFillPlayFill, BsYoutube } from "react-icons/bs"
 import { GiRoyalLove } from "react-icons/gi"
 import { IoArrowRedoSharp } from "react-icons/io5"
@@ -10,6 +10,8 @@ import ModalSocial from "../ModalSocial/ModalSocial";
 
 const DetailMoviePage = () => {
     const { slug } = useParams()
+    const { state, dispatch } = useContext(AuthenContext)
+    const MovieFavourite = state
     const [detailMovie, setDetailMovie] = useState([])
     const [dienvien, setDienVien] = useState([])
     const [listTap, setListTap] = useState([])
@@ -35,6 +37,7 @@ const DetailMoviePage = () => {
                 console.log(err);
             })
     }
+    const navigation=useNavigate()
     useEffect(() => {
         LayPhim()
     }, [slug])
@@ -46,6 +49,9 @@ const DetailMoviePage = () => {
     const [showModal, setShowModal] = useState(false)
     const HandlerCloseModal = () => {
         setShowModal(false)
+    }
+    const AddFavouriteMovie = () => {
+        dispatch({ type: 'ADD_MOVIE_FAVOURITE', payload: detailMovie })
     }
     return (
         <div className={`text-gray-400 min-h-screen flex flex-col relative`}>
@@ -84,7 +90,7 @@ const DetailMoviePage = () => {
                                     <p className="font-bold text-lg md:text-xl hover:text-yellow-500">Lượt xem: {detailMovie.view}</p>
                                 </div>
                             </div>
-                            <div className="flex bg-black/90 opacity-80 inset-0 mt-10 h-16 w-[450px] items-center justify-center text-center gap-4 flex-row">
+                            <div className="flex bg-black/90 opacity-80 inset-0 mt-10 h-16 md:w-[450px] items-center justify-center text-center gap-4 flex-row">
                                 <div className="flex border-r-2 pr-3 flex-col hover:text-yellow-400 items-center justify-center">
                                     <IoArrowRedoSharp className="hover:text-yellow-400" color="white" />
                                     <p className="font-bold hover:text-yellow-400 text-lg text-white" onClick={() => { setShowModal(true) }}>Share</p>
@@ -96,8 +102,11 @@ const DetailMoviePage = () => {
                                     </div>
                                     <div className="flex border-2 border-solid border-red-500 h-[45px] rounded-xl bg-yellow-400 w-[150px] flex-row items-center justify-center gap-2">
                                         <GiRoyalLove color="white" />
-                                        <p className="font-bold text-lg text-white">Yêu Thích</p>
+                                        {/* Lỗi vẫn chưa thêm vào đc nè
+                                        onClick={AddFavouriteMovie({ movie:detailMovie})} */}
+                                        <p className="font-bold text-lg text-white" onClick={AddFavouriteMovie} >Yêu Thích</p>
                                     </div>
+                                    <button onClick={()=>{navigation("/movie/phim-yeu-thich")}}>Phim yêu thích</button>
                                 </div>
                             </div>
                             <ModalSocial closed={HandlerCloseModal} visible={showModal} />
@@ -113,10 +122,12 @@ const DetailMoviePage = () => {
                     {
                         taps.map((items, index) => {
                             return (
-                                <Link to={`/movie/watch-movie/${slug}/tap/${items.name}`} className="" key={index}>
+                                <div key={index}>
+                                    <Link to={`/movie/watch-movie/${slug}/tap/${items.name}`} className="" >
 
-                                    <input className="w-[70px] bg-slate-400  hover:bg-yellow-500 text-white border rounded-lg gap-4 m-2" type="button" value={items.name} />
-                                </Link>
+                                        <input className="w-[70px] bg-slate-400  hover:bg-yellow-500 text-white border rounded-lg gap-4 m-2" type="button" value={items.name} />
+                                    </Link>
+                                </div>
                             )
                         })
                     }
