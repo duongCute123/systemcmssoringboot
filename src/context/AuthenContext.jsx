@@ -32,19 +32,25 @@ const reducer = (state, action) => {
                 lang: action.payload.lang,
                 time: action.payload.time
             }
-            state.MovieFavourite.map((list,indx)=>{
-                if (list.id===movie.id) {
-                    return
-                }
-            })
+            // Kiểm tra xem bộ phim đã tồn tại trong danh sách yêu thích hay chưa
+            const isMovieAlreadyAdded = state.MovieFavourite?.some((list) => list.id === movie.id);
+
+            // Nếu bộ phim đã tồn tại, không thực hiện thêm
+            if (isMovieAlreadyAdded) {
+                return state;
+            }
+
+            // Nếu bộ phim chưa tồn tại, thêm nó vào danh sách yêu thích
             const updatedMovieFavourite = [...state.MovieFavourite, movie];
 
-
+            // Lưu danh sách yêu thích đã được cập nhật vào localStorage
             localStorage.setItem("movie-favourite", JSON.stringify(updatedMovieFavourite));
+
+            // Trả về danh sách yêu thích mới
             return {
-                state,
+                ...state,
                 MovieFavourite: updatedMovieFavourite
-            }
+            };
             break
         case "GET_MOVIE_FAVOURITE":
             const phim = JSON.parse(localStorage.getItem("movie-favourite"))
@@ -58,16 +64,25 @@ const reducer = (state, action) => {
         case "XOA_MOVIE_FAVOURITE":
             // const phims = JSON.parse(localStorage.getItem("movie-favourite"))
             // state.MovieFavourite=phim
-            console.log(state.MovieFavourite);
-            console.log(action.payload);
+            // return {
+            //     ...state,
+            //     MovieFavourite: state.MovieFavourite.filter(movie => {
+            //         { console.log(action.payload) }
+            //         return movie.id != state.MovieFavourite[action.payload]?.id
+            //     })
+
+            // }
+            // Tìm kiếm bộ phim trong danh sách yêu thích
+            const movieIdToDelete = action.payload; // ID của bộ phim cần xóa
+            const updatedMovieFavourites = state.MovieFavourite.filter(movie => movie.id != movieIdToDelete);
+
+            // Lưu danh sách yêu thích đã được cập nhật vào localStorage
+            localStorage.setItem("movie-favourite", JSON.stringify(updatedMovieFavourites));
+            // Trả về danh sách yêu thích mới
             return {
                 ...state,
-                MovieFavourite: state.MovieFavourite.filter(movie => {
-                    { console.log(action.payload) }
-                    return movie.id != state.MovieFavourite[action.payload]?.id
-                })
-
-            }
+                MovieFavourite: updatedMovieFavourites
+            };
             break
         default:
             throw ("Invalid reques")

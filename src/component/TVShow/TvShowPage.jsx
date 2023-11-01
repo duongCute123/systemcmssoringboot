@@ -20,8 +20,6 @@ const TVShow = () => {
         }
 
     }, [data])
-    console.log(toTalPage);
-    console.log(pageRanges);
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected + 1);
     };

@@ -18,7 +18,6 @@ const CategoryMovie = () => {
     const { slug } = useParams()
     const url = `${DOMAIN}/${category}/${slug}.json?page=${currentPage}slug=${slug}`
     const data = useFetch(url)
-    console.log(data);
     useEffect(() => {
         if (data && data.params && data.params.pagination) {
             setToTalPage(Math.ceil((data.params.pagination.totalItems) / (data.params.pagination.totalItemsPerPage)))
@@ -26,8 +25,6 @@ const CategoryMovie = () => {
         }
 
     }, [data])
-    console.log(toTalPage);
-    console.log(pageRanges);
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected + 1);
     };

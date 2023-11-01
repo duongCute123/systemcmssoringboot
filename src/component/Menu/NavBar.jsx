@@ -320,7 +320,7 @@ const NavBar = () => {
                             <p>SYS CMS</p>
                         </Link>
                         <div className="flex items-center justify-center gap-3">
-                            <div className="">
+                            <div className="md:hidden">
 
 
                                 {
@@ -346,7 +346,7 @@ const NavBar = () => {
 
                                 }
                             </div>
-                            <div className="">
+                            <div className="md:hidden">
                                 <MdFavorite onClick={HandlerMovieFavorite} color="yellow" size={"25px"} />
                             </div>
                             <div className="text-3xl md:hidden" onClick={() => { setOpen(!open) }}>
@@ -361,6 +361,35 @@ const NavBar = () => {
                         </li>
                         <NavLink />
                     </ul>
+                    <div className="md:block hidden">
+
+
+                        {
+                            isCancel ?
+                                <AiOutlineClose
+                                    color="white"
+                                    fontFamily="bold"
+                                    size={"25px"}
+                                    onClick={() => {
+                                        setIsCanCel(false)
+                                        setTypes("hidden")
+                                        setSearch("hidden")
+                                    }} />
+                                :
+                                <BiSearch
+                                    color="white"
+                                    size={"25px"}
+                                    onClick={() => {
+                                        setIsCanCel(true)
+                                        setTypes("text")
+                                        setSearch("block")
+                                    }} />
+
+                        }
+                    </div>
+                    <div className="md:block hidden">
+                        <MdFavorite onClick={HandlerMovieFavorite} color="yellow" size={"25px"} />
+                    </div>
                     <div className="md:block hidden">
                         <Button />
 

@@ -17,7 +17,6 @@ const CountriesMovie = () => {
     const { slug } = useParams()
     const url = `${DOMAIN}/${countrie}/${slug}.json?slug=${slug}`
     const data = useFetch(url)
-    console.log(data);
     useEffect(() => {
         if (data && data.params && data.params.pagination) {
             setToTalPage(Math.ceil((data.params.pagination.totalItems) / (data.params.pagination.totalItemsPerPage)))
@@ -25,7 +24,6 @@ const CountriesMovie = () => {
         }
 
     }, [data])
-    console.log(toTalPage);
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected + 1);
     };

@@ -28,6 +28,7 @@ const WatchMovie = () => {
         setTaps({ ...tap, [name]: value })
         setSelctItem("bg-yellow-400")
     }
+    
     const handleEpisodeClick = (episode) => {
         setSelectedEpisode(episode.selected);
         setSelctItem("bg-yellow-400")
@@ -86,10 +87,10 @@ const WatchMovie = () => {
                 <h1 className=" font-bold mx-3 text-white text-2xl">Danh sách tập phim</h1>
                 <div className="flex flex-wrap">
                     {
-                        taps.map((items, index) => {
+                        taps?.map((items, index) => {
                             return (
                                 <div className="" key={index}>
-                                    <Link to={`/movie/watch-movie/${slug}/tap/${items.name}`} onClick={handleEpisodeClick} className={` ${theotap.name === items.name ? 'bg-yellow-400' : ''} mx-3 rounded-lg border-solid border-2 hover:no-underline font-bold text-white border-red-500 w-16  hover:bg-yellow-400`}>
+                                    <Link to={`/movie/watch-movie/${slug}/tap/${items?.name}`} onClick={handleEpisodeClick} className={` ${theotap?.name === items?.name ? 'bg-yellow-400' : ''} mx-3 rounded-lg border-solid border-2 hover:no-underline font-bold text-white border-red-500 w-16  hover:bg-yellow-400`}>
                                         <input className={`  w-[50px] mt-2`} type="button" onChange={HandleValue} value={items.name} />
 
                                     </Link>

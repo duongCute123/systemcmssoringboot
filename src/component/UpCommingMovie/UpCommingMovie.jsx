@@ -13,7 +13,6 @@ const UpCommingMovie = () => {
     const [pageRanges, setpageRanges] = useState()
     const url = `${DOMAIN}/danh-sach/phim-sap-chieu.json?slug=phim-sap-chieu`
     const data = useFetch(url)
-    console.log(data);
     useEffect(() => {
         if (data && data.params && data.params.pagination) {
             setToTalPage(Math.ceil((data.params.pagination.totalItems) / (data.params.pagination.totalItemsPerPage)))
@@ -21,8 +20,6 @@ const UpCommingMovie = () => {
         }
 
     }, [data])
-    console.log(toTalPage);
-    console.log(pageRanges);
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected + 1);
     };

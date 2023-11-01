@@ -9,8 +9,8 @@ const MovieFavourite = () => {
     const { state, dispatch } = useContext(AuthenContext)
     const { MovieFavourite } = state
     const [IsFavourite, setIsFavourite] = useState(false)
-    useEffect(() => {
-        dispatch({ type: 'GET_MOVIE_FAVOURITE' })
+    useEffect((id) => {
+        dispatch({ type: 'GET_MOVIE_FAVOURITE', payload: id })
     }, [])
     useEffect(() => {
         if (MovieFavourite?.length > 0) {
@@ -20,10 +20,9 @@ const MovieFavourite = () => {
         }
     }, [MovieFavourite])
     const HandlerCanCelMovie = (id) => {
-        console.log(id);
+        
         dispatch({ type: 'XOA_MOVIE_FAVOURITE', payload: id })
     }
-    console.log(MovieFavourite);
     return (
         <div className="min-h-screen bg-black/75 w-full mx-auto">
             <NavBarTMDB />
@@ -77,7 +76,7 @@ const MovieFavourite = () => {
                                                     <li className="font-bold border-2 border-solid h-7 items-center text-center justify-center bg-slate-600">{movie.lang}</li>
                                                 </ul>
                                                 <ul className="text-white flex flex-row gap-1 items-center">
-                                                    <MdOutlineFavorite onClick={()=>HandlerCanCelMovie(movie._id)} color="yellow" />
+                                                    <MdOutlineFavorite onClick={() => HandlerCanCelMovie(movie?.id)} color="yellow" />
                                                     <BiTime color="yellow" />
                                                     <li className="">{movie.time}</li>
                                                 </ul>
