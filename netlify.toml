@@ -1,0 +1,16 @@
+[[plugins]]
+package = "netlify-plugin-proxy"
+
+  [plugins.inputs]
+    [[plugins.inputs.proxy]]
+    from = "/_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/phim-hoat-hinh.json?slug=phim-hoat-hinh"
+    to = "https://ophim9.cc"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/phim-hoat-hinh.json?slug=phim-hoat-hinh"
+  to = "https://ophim9.cc"
+  status = 200
+
