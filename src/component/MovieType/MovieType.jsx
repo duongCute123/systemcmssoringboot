@@ -16,7 +16,7 @@ const MovieTypes = () => {
     const [pageRanges, setpageRanges] = useState()
     const { categories } = useParams()
     const { slug } = useParams()
-    const url = `https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/${slug}.json?slug=${slug}`
+    const url = `${DOMAIN}/danh-sach/${slug}.json?slug=${slug}`
     const data = useFetch(url)
     useEffect(() => {
         if (data && data.params && data.params.pagination) {
