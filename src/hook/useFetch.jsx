@@ -9,7 +9,7 @@ export const useFetch = (url) => {
             try {
                 const response = await axios.get(url, {
                     headers: {
-                      'origin': 'https://glistening-cranachan-7872c7.netlify.app'
+                      'origin': 'https://appmoviefree.netlify.app'
                     }
                   })
                 const data = await response.data.pageProps.data

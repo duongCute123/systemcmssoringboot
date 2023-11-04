@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import { useState } from "react";
 import axios from "axios"
+import { DOMAIN } from "../domain/domain";
 const AuthenContext = createContext();
 const initialState = {
     MovieTimKiem: [],
@@ -92,7 +93,7 @@ const reducer = (state, action) => {
 const AuthenProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const fetchSearch = async (query) => {
-        await axios.get(`/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query))
+        await axios.get(`${DOMAIN}/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query))
             .then(res => {
                 const data = res.data.pageProps.data
                 dispatch({ type: 'SEARCH_SUCCESS', payload: data })
@@ -102,7 +103,7 @@ const AuthenProvider = ({ children }) => {
             })
     }
     const fetchCategory = async () => {
-        await axios.get(`/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=`)
+        await axios.get(`${DOMAIN}/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=`)
             .then(res => {
                 const data = res.data.pageProps.data
                 dispatch({ type: 'SEARCH_SUCCESS', payload: data })
