@@ -7,7 +7,11 @@ export const useFetch = (url) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(url)
+                const response = await axios.get(url, {
+                    headers: {
+                      'origin': 'https://glistening-cranachan-7872c7.netlify.app'
+                    }
+                  })
                 const data = await response.data.pageProps.data
                 setData(data)
             } catch (error) {

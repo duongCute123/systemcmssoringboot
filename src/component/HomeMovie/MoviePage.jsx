@@ -32,9 +32,9 @@ function MovieList() {
                 console.log(err);
             })
     }, [currentPage]);
-    const url = `https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/phim-hoat-hinh.json?slug=phim-hoat-hinh`
+    const url = `${DOMAIN}/danh-sach/hoat-hinh.json?slug=hoat-hinh`
     const data = useFetch(url)
-    const urls = `https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/the-loai/phim-18.json?page=2&slug=phim-18`
+    const urls = `https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/the-loai/phim-18.json?page=2&slug=phim-18`
     const datas = useFetch(urls)
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected);
@@ -148,7 +148,7 @@ function MovieList() {
                             return (
                                 <div className='flex  mx-auto flex-col  rounded-xl' key={index}>
                                     <Link to={`/movie/detail-movie/${movie.slug}`}>
-                                        <img className='lg:w-[350px] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
+                                        <img className='lg:w-[350px] aspect-[2/3] lg:h-[400px] rounded-xl object-fill bg-cover bg-no-repeat' src={`https://img.ophim9.cc/uploads/movies/${movie.thumb_url}`} alt="" />
                                     </Link>
                                     <h1 className=' font-semibold text-xl line-clamp-1'>{movie.name}</h1>
                                     <div className='flex justify-between items-center'>
