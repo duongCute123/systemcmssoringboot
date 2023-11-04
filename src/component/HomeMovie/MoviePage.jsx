@@ -32,9 +32,9 @@ function MovieList() {
                 console.log(err);
             })
     }, [currentPage]);
-    const url = `${DOMAIN}/danh-sach/hoat-hinh.json?slug=hoat-hinh`
+    const url = `https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/phim-hoat-hinh.json?slug=phim-hoat-hinh`
     const data = useFetch(url)
-    const urls = `${DOMAIN}/the-loai/${genres[genres.length - 1].slug}.json?slug=${genres[genres.length - 1].slug}`
+    const urls = `https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/the-loai/phim-18.json?page=2&slug=phim-18`
     const datas = useFetch(urls)
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected);
