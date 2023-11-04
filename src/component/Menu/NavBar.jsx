@@ -302,7 +302,7 @@ const NavBar = () => {
         LayPhim()
     }, [currentPage])
     useEffect(() => {
-        axios.get(`/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query))
+        axios.get(`https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query))
             .then(res => {
                 setFilm(res.data.pageProps.data.items);
             })
