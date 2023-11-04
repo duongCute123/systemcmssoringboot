@@ -93,7 +93,7 @@ const reducer = (state, action) => {
 const AuthenProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const fetchSearch = async (query) => {
-        await axios.get(`${DOMAIN}/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query))
+        await axios.get(`${DOMAIN}/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query))
             .then(res => {
                 const data = res.data.pageProps.data
                 dispatch({ type: 'SEARCH_SUCCESS', payload: data })
