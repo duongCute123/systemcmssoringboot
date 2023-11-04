@@ -16,7 +16,7 @@ const CategoryMovie = () => {
     const [pageRanges, setpageRanges] = useState()
     const { category } = useParams()
     const { slug } = useParams()
-    const url = `${DOMAIN}/${category}/${slug}.json?page=${currentPage}slug=${slug}`
+    const url = `https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/${category}/${slug}.json?page=${currentPage}slug=${slug}`
     const data = useFetch(url)
     useEffect(() => {
         if (data && data.params && data.params.pagination) {

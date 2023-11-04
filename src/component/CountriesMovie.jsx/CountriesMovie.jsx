@@ -15,7 +15,7 @@ const CountriesMovie = () => {
     const [pageRanges, setpageRanges] = useState()
     const { countrie } = useParams()
     const { slug } = useParams()
-    const url = `${DOMAIN}/${countrie}/${slug}.json?slug=${slug}`
+    const url = `https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/${countrie}/${slug}.json?slug=${slug}`
     const data = useFetch(url)
     useEffect(() => {
         if (data && data.params && data.params.pagination) {

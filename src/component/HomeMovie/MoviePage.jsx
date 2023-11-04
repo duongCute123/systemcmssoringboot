@@ -32,7 +32,7 @@ function MovieList() {
                 console.log(err);
             })
     }, [currentPage]);
-    const url = `${DOMAIN}/danh-sach/hoat-hinh.json?slug=hoat-hinh`
+    const url = `https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/hoat-hinh.json?slug=hoat-hinh`
     const data = useFetch(url)
     const urls = `https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/the-loai/phim-18.json?page=2&slug=phim-18`
     const datas = useFetch(urls)
