@@ -41,6 +41,7 @@ const DetailMoviePage = () => {
     useEffect(() => {
         LayPhim()
     }, [slug])
+    // Sao truyền key vào
     useEffect(() => {
         listTap.map((tap) => {
             setTap(tap.server_data)

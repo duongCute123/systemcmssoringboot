@@ -420,7 +420,7 @@ const NavBar = () => {
                     <input type={`text`} onKeyPress={HandlerKeyPress} className={`form-control rounded-lg w-full mx-auto ${types}`} placeholder="Vui lòng nhập tên phi cần tìm kiếm" name="query" value={query} onChange={(e) => { setQuery(e.target.value) }} id="" />
 
                 </div>
-                <div className={` bg-black/90 text-white z-50 w-9/12 flex flex-col h-[300px] overflow-y-auto justify-between mx-auto ${search}`}>
+                <div className={` bg-black/90 text-white z-50 w-full flex inset-[2/3] flex-col h-[300px] overflow-y-auto justify-between mx-auto ${search}`}>
                     <p className="">Top phim hay</p>
                     {
                         data?.items?.map((item, idx) => {

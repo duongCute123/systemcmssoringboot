@@ -2,9 +2,11 @@ import { useContext } from "react"
 import { AuthenContext } from "../../context/AuthenContext"
 import { useParams } from "react-router-dom"
 import { useState } from "react"
+import React from "react"
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { BsServer } from "react-icons/bs"
+import ReactPlayer from "react-player"
 import axios from "axios"
 import NavBarTMDB from "../Menu/NavBar"
 const WatchMovie = () => {
@@ -28,7 +30,7 @@ const WatchMovie = () => {
         setTaps({ ...tap, [name]: value })
         setSelctItem("bg-yellow-400")
     }
-    
+
     const handleEpisodeClick = (episode) => {
         setSelectedEpisode(episode.selected);
         setSelctItem("bg-yellow-400")
@@ -58,7 +60,6 @@ const WatchMovie = () => {
         })
 
     }, [listTap])
-    console.log(theotap);
     return (
         <div className="bg-black/70 min-h-screen">
             <NavBarTMDB />
@@ -83,7 +84,7 @@ const WatchMovie = () => {
                 <input type="button" className="ml-4 border hover:bg-yellow-400 border-r-0 w-16 rounded-lg" value="S.PRO" />
                 <input type="button" className="ml-2 border hover:bg-yellow-500 border-r-0 w-16 rounded-lg" value="H.PRO" />
             </div>
-            <div className="my-3">
+            <div className="my-3 mx-2">
                 <h1 className=" font-bold mx-3 text-white text-2xl">Danh sách tập phim</h1>
                 <div className="flex flex-wrap">
                     {
