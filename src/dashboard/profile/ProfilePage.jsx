@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react"
-import ava from "../images.module/avarta.jpg"
+import ava from "../../images.module/avarta.jpg"
 import axios from "axios"
 import { useState } from "react"
-import { AuthenContext } from "../context/AuthenContext"
+import { AuthenContext } from "../../context/AuthenContext"
 const ProfilePage = () => {
     const list = {
         username: "",

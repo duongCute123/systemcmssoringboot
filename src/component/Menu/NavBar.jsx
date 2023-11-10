@@ -302,19 +302,19 @@ const NavBar = () => {
     useEffect(() => {
         LayPhim()
     }, [currentPage])
-    const url = `https://cors-anywhere.herokuapp.com/https://ophim9.cc/_next/data/s4OlXy8jONoHVWAT5vg7b/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query)
+    const url = `/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword=` + encodeURIComponent(query)
     const data = useFetch(url)
 
 
-    // useEffect(() => {
-    //     axios.get()
-    //         .then(res => {
-    //             setFilm(res.data.pageProps.data.items);
-    //         })
-    //         .catch(er => {
-    //             console.log(er);
-    //         })
-    // }, [query])
+    useEffect(() => {
+        axios.get(`/_next/data/s4OlXy8jONoHVWAT5vg7b/tim-kiem.json?keyword`)
+            .then(res => {
+                setFilm(res.data.pageProps.data.items);
+            })
+            .catch(er => {
+                console.log(er);
+            })
+    }, [query])
     {
         return (
             <nav className={`${displayBgColor ? 'bg-black/90' : 'bg-black'}  md:fixed md:top-0 md:inset-x-0 md:z-40 md:duration-300  text-white`}>
@@ -423,7 +423,7 @@ const NavBar = () => {
                 <div className={` bg-black/90 text-white z-50 w-9/12 flex flex-col h-[300px] overflow-y-auto justify-between mx-auto ${search}`}>
                     <p className="">Top phim hay</p>
                     {
-                        data?.pageProps?.data?.items?.length > 0 && data?.pageProps?.data?.items?.map((item, idx) => {
+                        data?.items?.map((item, idx) => {
                             return (
                                 <div key={idx} className="border-b-2 uppercase">
                                     <Link to={`/movie/detail-movie/${item.slug}`} className="flex items-center hover:no-underline justify-between" onClick={() => {

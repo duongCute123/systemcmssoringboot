@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { FaSearch, FaEnvelope, FaRegBell } from "react-icons/fa"
-import profile from "../images.module/profile.png"
+import profile from "../../images.module/profile.png"
 import { useNavigate } from 'react-router-dom'
-import { AuthenContext } from '../context/AuthenContext'
+import { AuthenContext } from '../../context/AuthenContext'
 const Dashboardview = () => {
     const [open, setOpen] = useState(false)
     const navigation=useNavigate()

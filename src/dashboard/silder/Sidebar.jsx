@@ -1,6 +1,6 @@
 import { FaTachometerAlt } from "react-icons/fa"
 import * as React from 'react';
-import logo from "../images.module/white1.webp"
+import logo from "../../images.module/white1.webp"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";

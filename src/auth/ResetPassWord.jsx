@@ -56,13 +56,13 @@ const Box = () => {
             })
     }
     return (
-        <div className="">
+        <div className="mx-4 min-h-screen">
             <div className="flex">
-                <div className="basis-2/3 my-16">
+                <div className="basis-2/3 hidden md:block my-16">
                     <img className="mx-16" src={logo} alt="" />
                     <p className="text-white mx-8"></p>
                 </div>
-                <div className="bg-white w-96 shadow-lg shadow-cyan-500/50 my-16 h-[600px] rounded-2xl">
+                <div className="bg-white mx-auto justify-center w-96 shadow-lg shadow-cyan-500/50 my-16 h-[600px] rounded-2xl">
                     <div className="text-center items-center basis-1/3 flex flex-col">
                         <img className="items-center text-center" src={logo} alt="" />
                         <h1 className="uppercase mt-5 mb-4">Đăng Nhập</h1>

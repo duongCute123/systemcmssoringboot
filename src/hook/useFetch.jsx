@@ -7,11 +7,7 @@ export const useFetch = (url) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(url, {
-                    headers: {
-                      'origin': 'https://appmoviefree.netlify.app'
-                    }
-                  })
+                const response = await axios.get(url)
                 const data = await response.data.pageProps.data
                 setData(data)
             } catch (error) {

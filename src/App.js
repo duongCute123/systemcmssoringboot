@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import Sidebar from "./pages/Sidebar"
+import Sidebar from "./dashboard/silder/Sidebar"
+import Dashboardview from './dashboard/homapage/Dashboardview';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
           <Sidebar />
         </div>
         <div className="basis-[88%] border overflow-scroll h-[100vh]">
+          <Dashboardview/>
           <div>
             <Outlet></Outlet>
           </div>

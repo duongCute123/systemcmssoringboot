@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import { AuthenContext } from "../context/AuthenContext"
+import { AuthenContext } from "../../context/AuthenContext"
 const AddUserPage = () => {
     const list = useContext(AuthenContext)
     const navigation = useNavigate()
