@@ -28,7 +28,7 @@ const USER_ROLE = {
 const RouterPage = () => {
     const { role } = useContext(AuthenContext)
     return (
-        <div className="relative w-full mx-auto   bg-slate-950/90">
+        <div className=" w-full mx-auto  bg-black/80 inset-0">
             <BrowserRouter>
                 <Routes>
                     <Route path="" element={< Test />} />
@@ -57,8 +57,7 @@ const RouterPage = () => {
                     <Route path="/admin/add-user" element={<App />}>
                         <Route index element={
                             <AdminElementPage role={role}>
-                                <AddUserPage />
-                            </AdminElementPage>
+                                <AddUserPage />                            </AdminElementPage>
 
                         } />
                     </Route>

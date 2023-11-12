@@ -19,6 +19,15 @@ function MovieList() {
     const [itemsPerPage, setItemsPerPage] = useState(0)
     const { setFilm, state, dispatch } = useContext(AuthenContext)
     useEffect(() => {
+        axios.get("https://apimovie-production-2565.up.railway.app/api/v1/phim-sap-chieu/1")
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+    useEffect(() => {
         axios.get(`https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=${currentPage}`)
             .then(res => {
                 setMovies(res.data.items)
