@@ -41,6 +41,15 @@ function MovieList() {
                 console.log(err);
             })
     }, [currentPage]);
+    useEffect(()=>{
+        axios.get(`https://vieon.vn`)
+        .then(res=>{
+            console.log(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    },[])
     const url = `/_next/data/s4OlXy8jONoHVWAT5vg7b/danh-sach/hoat-hinh.json?slug=hoat-hinh`
     const data = useFetch(url)
     const urls = `/_next/data/s4OlXy8jONoHVWAT5vg7b/the-loai/phim-18.json?page=2&slug=phim-18`

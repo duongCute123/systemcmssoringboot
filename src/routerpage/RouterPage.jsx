@@ -21,6 +21,7 @@ import MovieTypes from "../component/MovieType/MovieType"
 import TVShow from "../component/TVShow/TvShowPage"
 import UpCommingMovie from "../component/UpCommingMovie/UpCommingMovie"
 import MovieFavourite from "../component/MovieFavarite/MovieFavourite"
+import ProgramMetadata from "../crawldata/cawldata"
 const USER_ROLE = {
     PUBLIC_USER: "ROLE_USER",
     ADMIN_USER: "ROLE_ADMIN"
@@ -46,6 +47,7 @@ const RouterPage = () => {
                     <Route path="/movie/phim-yeu-thich" element={<MovieFavourite />} />
                     <Route path="/user/register" element={<RegisterPage />} />
                     <Route path="/user/reset-pass" element={<ResetPass />} />
+                    <Route path="/user/crawl-data" element={<ProgramMetadata />} />
                     <Route path="/admin/homepage" element={<App />}>
                         <Route index element={
                             <AdminElementPage role={role}>
