@@ -52,7 +52,7 @@ function MovieList() {
         dispatch({ type: 'ADD_MOVIE_FAVOURITE', payload: detailMovie })
     }
     return (
-        <div className='bg-black/80 overflow-y-auto'>
+        <div className=' bg-black/95 overflow-y-auto'>
             <NavBarTMDB />
             <Carousel />
             <div className='w-11/12 mx-auto justify-center'>

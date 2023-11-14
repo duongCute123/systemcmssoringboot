@@ -55,7 +55,7 @@ const DetailMoviePage = () => {
         dispatch({ type: 'ADD_MOVIE_FAVOURITE', payload: detailMovie })
     }
     return (
-        <div className={`text-gray-400 min-h-screen flex flex-col relative`}>
+        <div className={`text-gray-400 bg-black/95 min-h-screen flex flex-col relative`}>
             <NavBarTMDB />
             <div className={`w-full relative  lg:max-h-[800px] lg:min-h-0  bg-cover  object-cover bg-center lg:aspect-video bg-black`} style={{ backgroundImage: `url('${detailMovie.poster_url}')` }} >
                 <div className="lg:absolute px-4 pb-10 pt-24  inset-0 bg-black/90 md:bg-black/80 flex items-center">

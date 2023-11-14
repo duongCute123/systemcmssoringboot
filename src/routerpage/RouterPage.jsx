@@ -28,7 +28,7 @@ const USER_ROLE = {
 const RouterPage = () => {
     const { role } = useContext(AuthenContext)
     return (
-        <div className=" w-full mx-auto  bg-black/80 inset-0">
+        <div className=" w-full mx-auto ">
             <BrowserRouter>
                 <Routes>
                     <Route path="" element={< Test />} />

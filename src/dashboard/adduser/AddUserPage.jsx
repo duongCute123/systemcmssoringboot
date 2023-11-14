@@ -15,10 +15,11 @@ const AddUserPage = () => {
         e.preventDefault()
         await axios.post(`${process.env.REACT_APP_GATEWAY_CREATE_ACCOUNT}`, list.forms)
             .then(res => {
-                alert("Thêm thành công")
+                console.log(res.data);
+                alert(res.data.message)
             })
             .catch(err => {
-                console.log(err);
+                console.log(err.message);
             })
     }
     return (
@@ -39,7 +40,7 @@ const AddUserPage = () => {
                         <input type="text" className="form-control" placeholder="Vui lòng nhập họ và tên của bạn" name="fullName" value={list.fullName} onChange={list.laygtri} id="" />
                     </div> */}
                     <div className="form-grop">
-                        <label htmlFor="">Nhập giới tính của bạn</label>
+                        <label htmlFor="">Nhập địa chỉ email</label>
                         <input type="text" placeholder="Vui lòng nhập giới tính" className="form-control" name="email" value={list.email} onChange={list.laygtri} id="" />
                     </div>
                     {/* <div className="form-group">

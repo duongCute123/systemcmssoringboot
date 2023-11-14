@@ -61,7 +61,7 @@ const WatchMovie = () => {
 
     }, [listTap])
     return (
-        <div className="bg-black/70 min-h-screen">
+        <div className="bg-black/95 min-h-screen">
             <NavBarTMDB />
             <h1 className="my-3 mx-3 text-white lg:mt-20 hover:text-yellow-500  text-2xl uppercase font-bold">CMS - Phim bộ - {detailMovie.name}</h1>
             <div className="flex flex-col items-center ">
